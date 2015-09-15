@@ -1,0 +1,328 @@
+\documentclass[a4paper,11pt,fleqn,dvipsnames,twoside,openright]{memoir} 	
+
+%%%% PACKAGES %%%%
+% ¤¤ Encoding and language ¤¤ %
+\usepackage[utf8x]{inputenc}				
+\usepackage[UKenglish]{babel}				
+\usepackage[T1]{fontenc}				
+\usepackage{ragged2e,anyfontsize}		
+\usepackage{fixltx2e}
+
+% ¤¤ Figures and tables (floats) ¤¤ %
+\usepackage{graphicx} 					
+\usepackage{multirow}                
+\usepackage{multicol}         	       
+\usepackage{rotating}					
+\usepackage{colortbl} 					
+\usepackage[table]{xcolor}						
+\usepackage{flafter}					
+\let\newfloat\relax 					
+\usepackage{float}		
+\usepackage{longtable}	
+\usepackage{etoolbox}
+\usepackage{placeins}
+
+% ¤¤ Math ¤¤ %
+\usepackage{amsmath,amssymb,stmaryrd} 	
+\usepackage{mathtools}					
+\usepackage{textcomp}                 	
+\usepackage{rsphrase}				
+\usepackage[version=3]{mhchem} 			
+\usepackage{siunitx}					
+
+% ¤¤ References and sources ¤¤ %
+\usepackage[english]{varioref}			
+\usepackage{natbib}              			
+
+% ¤¤ Misc. ¤¤ %
+\usepackage{listings}
+\usepackage{color}
+\usepackage{courier}
+\usepackage{dirtree}
+%\usepackage{lipsum}						
+\usepackage[shortlabels]{enumitem}		
+\usepackage{pdfpages}	
+\usepackage{mdframed}
+\pdfoptionpdfminorversion=6				
+\pretolerance=2500
+
+
+\usepackage[footnote,draft,english,silent,nomargin]{fixme}		
+\usepackage{lastpage}
+
+%%%% CUSTOM SETTINGS %%%%
+% ¤¤ Margins ¤¤ %
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}	
+\setulmarginsandblock{2.5cm}{3.0cm}{*}	
+\checkandfixthelayout 					
+
+% ¤¤ Formatting ¤¤ %
+\setlength{\parindent}{0mm}           	
+\setlength{\parskip}{3mm}          		
+\linespread{1,1}					
+
+% ¤¤ Literature list ¤¤ %
+\bibpunct[,]{[}{]}{;}{a}{,}{,} 
+\bibliographystyle{plainnat}	
+
+% ¤¤ Table of contents ¤¤ %
+\setsecnumdepth{subsection}		 		
+\maxsecnumdepth{subsection}				
+\settocdepth{section} 				
+
+% ¤¤ Lists ¤¤ %
+\setlist{
+  topsep=0pt,							
+  itemsep=-1ex,							
+} 
+
+\newcommand*\Hide{%
+\titleformat{\chapter}[display]
+  {}{}{0pt}{\Huge}
+\titleformat{\part}
+  {}{}{0pt}{}
+}
+
+% Chapter med subtitle
+\newcommand\Chapter[2]{
+  \chapter[#1: {\itshape#2}]{#1\\\Large\itshape#2}
+}
+
+% ¤¤ Visual references ¤¤ %
+\usepackage[colorlinks]{hyperref}		
+\hypersetup{colorlinks = true,	
+    linkcolor = black,
+    citecolor = black,
+    urlcolor = black
+}
+
+% ¤¤ Caption layout ¤¤ %
+\captionnamefont{\small\bfseries\itshape}	
+\captiontitlefont{\small}				
+\captiondelim{. }						
+\hangcaption							
+\captionwidth{\linewidth}				
+\setlength{\belowcaptionskip}{0pt}		
+		
+% ¤¤ Listings layout ¤¤ %
+\definecolor{commentGreen}{RGB}{0,150,0}
+\definecolor{darkRed}{RGB}{150,0,0}
+\definecolor{stringPurple}{RGB}{208,76,239}
+\definecolor{light-gray}{gray}{0.95}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth-6pt}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+
+
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    %stepnumber=2,
+    numbersep=5pt,
+    tabsize=3,
+    extendedchars=true,
+    breaklines=true,
+    keywordstyle=\color{blue}\ttfamily,
+    commentstyle=\color{commentGreen}\ttfamily,
+    frame=b,
+    stringstyle=\color{darkRed}\ttfamily,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    backgroundcolor=\color{light-gray},
+    showstringspaces=false,
+    xleftmargin=23pt,
+    framexleftmargin=23pt,
+    framexrightmargin=0pt,
+    framexbottommargin=4pt
+ }
+
+% Alternative Listing style (Caption below)
+%\lstset{
+%    frame=single,
+%    tabsize=3,
+%    breaklines=true,
+%    backgroundcolor=\color{light-gray},
+%    language=C++,
+%    basicstyle=\ttfamily,
+%    keywordstyle=\color{blue}\ttfamily,
+%    stringstyle=\color{red}\ttfamily,
+%    commentstyle=\color{commentGreen}\ttfamily,
+%    belowcaptionskip=4pt,
+%    captionpos=b,
+%    numbers=left,
+%    morecomment=[l][\color{magenta}]{\#}
+%}
+
+
+
+
+		
+% ¤¤ Naming ¤¤ %
+\addto\captionsenglish{
+	\renewcommand\contentsname{Table of contents}	
+	\renewcommand\cftchaptername{\chaptername~}			
+	\renewcommand\cftappendixname{\appendixname~}		
+}
+
+% ¤¤ Chapter layout ¤¤ %
+\definecolor{numbercolor}{gray}{0.7}	
+\newif\ifchapternonum
+
+\makechapterstyle{jenor}{			
+  \renewcommand\beforechapskip{0pt}
+  \renewcommand\printchaptername{}
+  \renewcommand\printchapternum{}
+  \renewcommand\printchapternonum{\chapternonumtrue}
+  \renewcommand\chaptitlefont{\fontfamily{pbk}\fontseries{db}\fontshape{n}\fontsize{25}{35}\selectfont\raggedleft}
+  \renewcommand\chapnumfont{\fontfamily{pbk}\fontseries{m}\fontshape{n}\fontsize{1in}{0in}\selectfont\color{numbercolor}}
+  \renewcommand\printchaptertitle[1]{%
+    \noindent
+    \ifchapternonum
+    \begin{tabularx}{\textwidth}{X}
+    {\let\\\newline\chaptitlefont ##1\par} 
+    \end{tabularx}
+    \par\vskip-2.5mm\hrule
+    \else
+    \begin{tabularx}{\textwidth}{Xl}
+    {\parbox[b]{\linewidth}{\chaptitlefont ##1}} & \raisebox{-15pt}{\chapnumfont \thechapter}
+    \end{tabularx}
+    \par\vskip2mm\hrule
+    \fi
+  }
+}				
+
+\newfloat{Code}{H}{myc}
+
+\chapterstyle{jenor}			
+
+% ¤¤ Header/footer layout ¤¤ %
+\makepagestyle{AAU}						
+\makepsmarks{AAU}{%
+	\createmark{chapter}{left}{shownumber}{}{. \ }
+	\createmark{section}{right}{shownumber}{}{. \ }
+	\createplainmark{toc}{both}{\contentsname}
+	\createplainmark{lof}{both}{\listfigurename}
+	\createplainmark{lot}{both}{\listtablename}
+	\createplainmark{bib}{both}{\bibname}
+	\createplainmark{index}{both}{\indexname}
+	\createplainmark{glossary}{both}{\glossaryname}
+}
+\nouppercaseheads			
+
+\makeevenhead{AAU}{Group SW606F15}{}{\leftmark}			
+\makeoddhead{AAU}{\rightmark}{}{Aalborg University}	
+\makeevenfoot{AAU}{\thepage}{}{}						
+\makeoddfoot{AAU}{}{}{\thepage}							
+\makeheadrule{AAU}{\textwidth}{0.5pt}					
+\makefootrule{AAU}{\textwidth}{0.5pt}{1mm}				
+
+\copypagestyle{AAUchap}{AAU}							
+\makeoddhead{AAUchap}{}{}{}
+\makeevenhead{AAUchap}{}{}{}
+\makeheadrule{AAUchap}{\textwidth}{0pt}
+\aliaspagestyle{chapter}{AAUchap}							
+
+\pagestyle{AAU}											
+
+
+%%%% CUSTOM COMMANDS %%%%
+
+% ¤¤ Project name ¤¤
+% Skrives som \projname{}
+\newcommand{\giraf}{\emph{GIRAF}}
+
+% ¤¤ Referencer ¤¤
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\charef}[1]{Chapter~\ref{#1}}
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\tblref}[1]{Table~\ref{#1}}
+\newcommand{\lstref}[1]{Listing~\ref{#1}}
+\newcommand{\appref}[1]{Appendix~\ref{#1}}
+\newcommand{\equref}[1]{Equation~\ref{#1}}
+
+% ¤¤ Figure hack ¤¤ %
+\newcommand{\fig}[4]{
+		\begin{figure}[H] \centering
+		\includegraphics[width=#1\textwidth]{pictures/#2}
+			\caption{#3}\label{#4}
+		\end{figure} 
+}
+
+% ¤¤ Special characters ¤¤ 
+\newcommand{\decC}{^{\circ}\text{C}}
+\newcommand{\dec}{^{\circ}}
+\newcommand{\m}{\cdot}
+
+
+%%%% HYPHENATION %%%%
+\hyphenation{}
+
+
+%%%% Noget vi har skrevet/Egne tilføjelser %%%%
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\selectlanguage{UKenglish}
+\definecolor{Gray}{gray}{0.92}
+\definecolor{DGray}{gray}{0.83}
+\definecolor{DarkGray}{gray}{0.35}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\usepackage{pxfonts}
+
+%%%% OK lækker kode som fixer vores liv. Dødstaf for at slette det! %%%%
+\makeatletter
+\pretocmd\start@align
+{%
+  \let\everycr\CT@everycr
+  \CT@start
+}{}{}
+\apptocmd{\endalign}{\CT@end}{}{}
+\makeatother
+
+
+\makeatletter
+\renewcommand\part{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%   % Original »plain« replaced by »emptyx
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  \secdef\@part\@spart}
+\makeatother
+
+%%%% Listing! %%%%
+
+\newenvironment{narrow}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]
+}{\end{list}}
+
+
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
+\newcommand{\READ}[1]{\fxnote{\textbf{READV2 #1}}}

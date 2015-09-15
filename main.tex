@@ -1,0 +1,77 @@
+\input{Preamble_ida.tex}
+\raggedbottom
+
+\begin{document}
+\selectlanguage{UKenglish}
+
+\frontmatter							
+
+\include{formalities/formalitiesMain}
+
+%%%% Indholdsfortegnelse (TOC) %%%%
+\phantomsection
+\pdfbookmark[0]{Table of Contents}{contents}
+\tableofcontents*
+
+\mainmatter
+
+%%%% Chapters %%%%
+\input{fragments/chapters}
+
+%%%% Kilder %%%%
+\begingroup
+	\raggedright
+	\bibliography{bibliography/literature.bib}
+\endgroup
+\phantomsection
+
+
+\addcontentsline{toc}{part}{Appendix}
+
+%%%% Appendiks %%%%
+\begingroup
+\appendix
+\clearforchapter
+\phantomsection
+\include{appendix/appendixMain}
+\endgroup
+
+%%%% Fixme/fxnotes %%%%
+\listoffixmes
+
+\end{document}
+
+
+
+
+
+
+
+%%%% Skabelon til et billede %%%%
+%\begin{figure}[H]
+%     \center{\includegraphics[width=\textwidth]
+%     {graphics/Billedenavn.pdf}}
+%     \caption{\label{fig:Billedenavn} Billede tekst.}
+%\end{figure}
+
+%%%% Skabelon til en lstlisting %%%%
+%\begin{lstlisting}[caption= Look at my fancy \lstref{lst:testlst}, label=lst:testlst]
+%...
+%\end{lstlisting}
+
+%%%% Skabelon til en tabel %%%%
+%\begin{table}[H]
+%	\centering
+%	\ra{1.3}
+%   \rowcolors{1}{Gray}{}
+%   \begin{tabular}{lcc}
+%   \hline  
+    
+%   Tekst    & Mere tekst    & Endnu mere tekst  \\ \hline  \rowcolor{Gray}
+%   Tekst    & Mere tekst    & Endnu mere tekst  \\ 
+    %Copy the two lines if more is needed.
+    
+%   \hline 
+%   \end{tabular}
+%   \caption{\label{table:TableNameForReferencing} Table tekst.}
+%\end{table}
