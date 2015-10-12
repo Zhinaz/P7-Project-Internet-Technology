@@ -1,0 +1,79 @@
+\section{Architecture}\label{sec:architecture}
+This section covers the design of the architecture and structure of the solution. The section includes a discussion, why a complete decentralisation solution is not possible for the project, and continues on to the architecture design.
+
+
+\subsection{Network Architecture}\label{sec:network-architecture}
+Making a solution complete decentralised would require functionality that allows this implemented into the \sdevs. This would not be possible for this project, as we are not competent to build our own hardware, and this would be outside the scope of the project. A solution such as this one, could be built into Smart Home systems from some of the bigger companies, if they develop their own \sdevs. A valid alternative therefore have to be found.
+
+The following solutions are based on having a client-server relationship between the various clients on the network, as an alternative to the complete decentralisation. Some of these solutions describes different methods to select which client that will act as the system's server, also known as the master. The master stores all the data previous described in \secref{sec:system-description}.
+
+\subsubsection{Dynamic Prioritisation}
+One way to handle prioritisation is to have the \phone~with the most up-to-date settings be the highest priority client. The advantage of dynamically updating the master client is that recent changed are stored immediately and can be synchronised to other clients. The non-master clients should be able to identity the master client to ensure correct data synchronisation.
+
+\subsubsection{Prioritisation List}
+All users are given a prioritisation in the system, where the highest prioritised client acts as the master. The master is based on the clients that are currently connected to the system and present in the priority list. If the current master goes offline, the online client who is second highest will be promoted to the master \phone. All the \phones'~changes will be synced with the master.
+
+\subsubsection{Fixed Master}
+%Administrator make a fixed prioritisation list.
+The Administrator of the system defines a set of \phones~to have higher prioritisation. A higher prioritised \phone~will be chosen as master before other \phone.
+
+\subsubsection{No prioritisation}
+A different approach is to have no prioritisation at all and let a random online \phone~be chosen as master. 
+
+\subsubsection{Peer-to-peer}
+An alternative to having a client server relationship is to synchronise the data between the clients through Peer-to-peer (P2P) network. This removes the need for a master and prioritisation between the clients. In this situation, all connected clients are responsible for the exchange of data. 
+
+\subsubsection{Choice of Network Architecture}
+% Skriv hvad vi har valgt og hvorfor, når et valg er blevet taget
+
+
+\subsection{Network Communication}
+The system requires communication between the individual \phones, the internal communication, to update information between them. Furthermore the \phones should be able to send commands from the \sdevs, the external communication, connected to the system.
+
+\subsubsection{Internal Communication}
+Communication within the system, this communication will be the focused communication type in this project. The internal communication is the data between the different \sdevs. The \sdevs all has to has the newest data available in the system. The data for synchronisation is:
+\begin{itemize}
+\item Users and their access levels
+\item Currently connected \phones
+\item Information about \sdevs~in the system
+\item Rules for the individual \sdevs
+\end{itemize}
+There are some challenges in the scoop of sync this data. The most import thing is security which contains many sub parts. Only authorised persons has access to read the data and all the clients has to agreed about who is the trusted sender at the time. The data most not be changeable from the sender to the receiver and data between sender and receiver should not get lost. More formally the protocol for sync the data must fulfil the following properties:
+\begin{itemize}
+\item Prevent loss of data
+\item Encrypted between sender and receiver
+\item Clients has a unique signature/certificate for verify the data source.
+\end{itemize}
+
+% Check Scribble.org
+
+\subsubsection{External Communication}
+The communication between the \sdevs~and the \phones~are defined by the different suppliers of the \sdevs. The communication between the \sdevs~and \phones~  consist of some various commands supported by the device. The commands can be very different because the scope also is different for the device. Some device only has are on and off state, other devices need a variable number in a range, and some device only output some data. Some of the suppliers use standardised protocols and open Application programming interfaces (API) for handling the devices. Our systems has to support the most common devices on the market for smart devices as default. But the target of our project is to made a system which quickly can be expanded to support new devices. 
+%%% Øhhh Environments ? skal vi ikke skrive lidt om det evt. ? 
+
+%Skriv om hvad vi skal sende rundt og noget med nogle protokoler 
+
+
+\subsection{Model of the smart world}
+%\subsection{Database}\label{sec:database}
+%Forklar hvad vi skal bruge database til, og hvordan vi bygger den. 
+%Evt. valg af teknologi med pro/cons inden valg
+%\subsection{Front End and Back End}
+%\subsection{Model}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Middleware}
+The middleware is a software layer, responsible for interfacing with other devices. In addition, the layer provides interoperability by using standardised interfaces and protocols. The middleware can be focusing on proprietary standards or based on open standards, depending on the developers and purpose, where the purpose either is general or dedicated to home automation~\citep{overview-smart-home-environment}. For a Smart Home system, it makes most sense to use the open standards, as the \sdevs can come from many different manufacturers. For the project, the focus is on using the web standards and standardised practises, like REST.
+
+
+% http://www.sersc.org/journals/IJSH/vol7_no1_2013/11.pdf
+%

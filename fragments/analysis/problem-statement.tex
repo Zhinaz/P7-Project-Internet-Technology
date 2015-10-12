@@ -1,5 +1,70 @@
 \section{Problem Statement} \label{sec:problem-statement}
 
-Vi vil lave et SmartHome hvor man selv kan justere hvilke produkter der skal kunne styres fra web tjenesten.
+For each of the four use cases from \secref{sec:use-cases} the main drawbacks are: 
+\begin{itemize}
+\item John's usability problem with using multiple \phones~to control his home.
+\item Arthur's problem with a defective hub that the entire Smart Home relies on.
+\item Sarah's problem with unstable Internet and dependency on Internet access, rather than just Wi-Fi connection to the devices.
+\item Alice's security problem with the neighbour abusing her \sdevs.
+\end{itemize}
 
-Slut af med problem statement.
+As found in the existing solutions in \secref{sec:existing-solutions}, there exists no solution which controls various \sdevs~without utilising a \hub.
+Furthermore, only a few solutions have implemented authentication, none of which implement user access levels in their solution.
+
+Based on the initiating problem, the use cases, and existing solutions, the focus of this project is:
+\begin{changemargin}{1cm}{1cm} 
+To what extend could one make a Smart Home which satisfies the following requirements:
+\begin{itemize}
+\item Interact with hardware from different manufactures.
+\item Provide a common \phone~for the users.
+\item Run on a single device without external dependencies, without the need for a central hub. 
+\item User authentication and different access levels for users in the system.
+\end{itemize}
+\end{changemargin} 
+
+
+
+
+%\begin{table}[H]
+%	\centering
+%	\begin{narrow}{1cm}{1cm}
+%
+%	\rule{\linewidth}{0.035cm}
+%	\begin{center}
+%	\textbf{Problem Statement} 
+%	\end{center}
+%	\rule{\linewidth}{0.035cm}
+%    
+%	\medskip\noindent \textit{To what extend could one make a Smart Home which satisfies the following requirements:
+%\begin{itemize}
+%\item Interact with hardware from different suppliers.
+%\item Supply a common interface for the users.
+%\item Run on a single device without external dependencies, without the need for a central hub. 
+%\item User authentication and different access levels for users in the system.
+%\end{itemize}}
+%
+%	\rule{\linewidth}{0.035cm}      
+%	\end{narrow}
+%\end{table}
+
+
+%How could one make an adaptable smart home that can:
+%\begin{itemize}
+%\item handle various devices from different suppliers, combined in an accessible user control interface
+%\item be accessed by a single device, without the need from a central hub
+%\end{itemize}
+
+%Based on the initiating problem, the use cases, and the research within the field of existing Smart Home technologies, this project focuses on the following problems:
+
+%\begin{changemargin}{0.5cm}{0.5cm} 
+%\textit{How could one make an adaptable smart home that can handle various devices from different suppliers, combined in an accessible user control interface, that is accessible from a single device %connected to the local Wi-Fi, without the need of a central hub?}
+%\end{changemargin} 
+
+%The problem tries to encapsulate the problems found in the three use cases: 
+%\begin{itemize}
+%\item John's usability problem with using multiple applications to control his home.
+%\item Arthur's problem with his defect hub that his entire Smart Home relies on.
+%\item Sarah's problem with unstable Internet and dependency on Internet connection, rather than just Wi-Fi connection to the devices. 
+%\end{itemize}
+
+%As found in the existing solutions, a solution which is both effective, universal and does not use a \hub, does not exist. Furthermore, only a few solutions have implemented authentication, where none of these implements access levels in their solutions.

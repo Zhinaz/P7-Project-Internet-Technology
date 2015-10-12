@@ -1,3 +1,78 @@
 \section{Existing Solutions} \label{sec:existing-solutions}
 
-For at få en videre forståelse omkring SmartHome så kigger vi på konkurrenterne.
+To get a better understanding of the existing Smart Home systems, some of the, arguably, most popular solutions have been examined.
+These solutions are compared and the problems and missing features are described.
+
+% Equipment required? (Focus on hub?)
+% How is it controlled? App? 
+% What can be controlled, which devices can be added to the system? (Only their own devices?)
+% Any special functionality? (Feature list)
+
+\subsection{Insteon} \label{sec:insteon}
+Insteon is a Smart Home system consisting of LED lights, thermostats, and an adaptor for plug-in devices.
+Insteon's \sdevs~can be controlled with wall switches, or through their \hub.
+The \hub~allows the user to control the Insteon \sdevs~from a \phone.
+Once the \hub~is installed the user can control the home from anywhere in the world~\citep{insteon}.
+An API to the system is accessible, but requires the \hub~to work~\citep{insteon_api}.
+If the user gains access to an Insteon system, then the user has access to all the connected \sdevs, without any kind of authentication. 
+
+\subsection{Logitech Harmony} \label{sec:logitech-harmony}
+Logitech Harmony makes it simple to control a lot of different \sdevs. In the beginning Logitech Harmony was a universal remote control build to control infrared and radio frequency devices. Today Logitech Harmony has extended the system to also include numerous \sdevs~by adding a \hub~to the system. The \hub~can be controlled by different Logitech Harmony remotes or the Logitech Harmony mobile application. The setup of Logitech Harmony is simple. All the user needs to do is plug the \hub~into a computer and then add all the \sdevs~by searching in the My Harmony application~\citep{logitechmyharmony}. There is no restriction of access, once on the same Wi-Fi network as the Harmony, a user can access all the \sdevs~connected to the system.
+
+\subsection{Nest} \label{sec:nest}
+Nest, working together with Google, focuses on making intelligent sensor-driven devices. Currently there is a thermostat, the Nest Protect which functions as a smoke alarm, and a security camera. These products can be controlled with a \phone. The main idea of Nest is not just to control the \sdevs, but have them communicate through Wi-Fi and interact with each other~\citep{nest}. The Nest API also enable developers connect their \sdevs~to the Nest devices and use their functionality and data. They have also partnered with numerous other companies, integrating their products with Nest, such as the Phillips Hue and the August Smart Lock. There is no \hub~required for communication between the products, but since the Nest products are the basis of the system they are needed. It is not possible to restrict access for users of the same Nest system~\citep{nest-dev}. 
+
+\subsection{openHAB} \label{sec:openhab}
+openHAB, Open Home Automation Bus, is spilt into two parts, a \hub, with an accessible Java API, and a \phone. Which means that the openHAB \hub~can be installed on any device capable of running a JVM (Java Virtual Machine)~\citep{openhab-architecture}. A \phone~is available for, iOS, Android, and as a Web-application, all of which connect to the \hub. As a result the \hub~must be powered at all times, otherwise the \phone~will not function. The openHAB system supports an arguably wast array of technologies, as of 2015 they support 121 technologies~\citep{openhab-technologies}. OpenHAB does not make \sdevs, instead it integrates other \sdevs~from different manufacturers. 
+
+\subsection{Samsung Smart Home} \label{sec:samsung-smart-home}
+Samsung Smart Home, was the Smart Home system that Samsung used before they acquired SmartThings. Samsung Smart Home is an application that can control Samsung's \sdevs, such as washers, refrigerators, air conditioners, ovens etc. It is only possible to control \sdevs~connected through Wi-Fi. The system does not need a \hub~to control all of the \sdevs, but functionality for connecting the device to the application is build into each of the devices. The application itself is free to download, but \sdevs~are expensive compared to the other solutions~\citep{samsung-smart-home}. 
+
+\subsection{SmartThings} \label{sec:smartthings}
+SmartThings is a complete Smart Home system, that utilises an application to easily add and control \sdevs. SmartThings consists of a \hub~along with multiple components such as sensors, outlets, etc. SmartThings has partnered with a lot of hardware manufacturers, such as D-Link, Cree, Bose, Honeywell, and more, which ensures that their \sdevs~can operate together. The system can be used to monitor the users house, with a wide array of sensors and can control important home utilities such as lights, heating, water, surveillance, and locks~\citep{smartthings}. It is possible to create routines and use them these with the \phone. An example of a morning routine could be to: start the coffee machine, turn up the heating, and turn on the radio. If a sensor or alarm is triggered, the \phone~alerts the user of such that he can monitor\citep{smartthings-howto}. It is possible to have multiple user profiles for a setup, but it is not possible to restrict access for some of the profiles.  
+
+\subsection{WeMo} \label{sec:wemo}
+WeMo is Belkin's products on the Smart Home market. Although WeMo have made both humidifiers and coffee machines, they primarily focus on light bulbs and wall sockets. The light bulbs are equipped with Wi-Fi, while the sockets are controlled through a small Wi-Fi connected socket-extension that is plugged into a regular socket. These \sdevs~are all connect to WeMo's \hub, the WeMo Maker. The WeMo Maker is controlled through an application that can be installed on a \phone, and used while on the same local Wi-Fi as the \hub~\citep{wemo-smarthome}.
+
+
+\subsection{Comparison of Existing Solutions}\label{sec:comparison-existing-solutions}
+Common for many of these solutions, are the \sdevs~available for the system are either developed by the same company, or partners of the company. This reduces the number of components which are compatible with a specific system. As a result a user cannot purchase a device, and expect the device to fit into his system at home. 
+
+The features of the different solutions have been compiled into a table to provide an overview, which can be seen in \tblref{tab:comparison-existing-solutions}. An explanation of the parameters are seen below. These parameters are used for a comparison later. 
+
+\begin{description}
+\item[\Hub] if the solution requires a \hub~for the user to control \sdevs~with a \phone.
+\item[Partial Solution] if the system also provides functionality to integrate \sdevs~developed by other manufacturers.
+\item[Mobile application] if there exists an official mobile application for Android or iOS to control the system. 
+\item[Web-application] if the system can be controlled from an official web-application in a browser.
+\item[Hardware controller] if there exists some hardware remote for the system.
+\item[Authentication] if the system requires authentication for local connections, such as user credentials.
+\item[Access levels] if the system has different access levels for the different users.
+\end{description}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{l c c c c c c c}
+\textbf{Solution}  & \rot{\Hub} & \rot{Partial Solution} & \rot{Mobile application} & \rot{Web-application} & \rot{Hardware controller} & \rot{Authentication} & \rot{Access levels} \\ \toprule  
+Insteon            & \OK       & \NO                     & \OK                       &    \NO    &       \OK  & \OK & \NO\\
+Logitech Harmony   & \OK       & \NO                     & \NO                       &    \OK    &       \OK  & \NO & \NO\\
+Nest               & \NO       & \OK                     & \OK                       &    \OK    &       \NO  & \NO & \NO\\
+openHAB            & \OK       & \OK                     & \OK                       &    \OK    &       \NO  & \OK & \NO\\
+Samsung Smart Home & \NO       & \NO                     & \OK                       &    \NO    &       \NO  & \OK & \NO\\
+SmartThings        & \OK       & \OK                     & \OK                       &    \OK    &       \NO  & \OK & \NO\\
+WeMo               & \OK       & \NO                     & \OK                       &    \OK    &       \NO  & \NO & \NO\\
+\end{tabular}
+\caption{Overview of existing Smart Home solutions.}
+\label{tab:comparison-existing-solutions}
+\end{table}
+
+It is apparent that the majority of the reviewed solutions rely on a \hub. The only solutions that does not require a central hub, are Nest and Samsung Smart Home.  
+
+Nest does not require a \hub, however their devices are designed such that they must be connected to the Internet in order for the user to connect to them. Which, in turn, means Nest is the mediator between the devices in the home and the users \phone. As a result, if Nest experiences any server issues or the users Internet-connection is unstable it affects the users ability to access and control their devices. 
+
+Samsung Smart Home suffers from a lot of the same problems as Nest is struggling with. It does not require a \hub~since it is purely based around the smartphone application, but like Nest, Samsung's servers are the mediator between the \sdevs~and the user's smartphone. This also questions the security of personal data and information about the users houses.
+
+There are only a few solutions that allows to control other manufacturers \sdevs~with their solution. This is problematic for the part of the target group who already owns a fair number of \sdevs, and later realise that they want to connect them all in one system.
+
+Another feature that all the solutions have not implemented, is authentication and access levels. It is not possible to create user profiles for children, which means that they have access to all of the \sdevs, even though this might not be the best solution. 
+

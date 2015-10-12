@@ -1,0 +1,42 @@
+\section{System Description}\label{sec:system-description}
+The system must include a standalone \phone~application which sends the use input to the right devices. This application has all the necessary data stored locally, allowing it to work without interactions from a remote server. This data will include:
+
+\begin{itemize}
+\item Users and their access levels
+\item Currently connected \phones
+\item Information about \sdevs~in the system
+\item Rules for the individual \sdevs
+\end{itemize}
+
+Sometimes this data will have to be synced with the other clients on the same local network, to allow multiple clients to control the same \sdevs. Overall the goal of the system is to interact with \sdevs~without the need of a \hub~or a remote server, but still being able to sync data between \phones~in the system. 
+
+\subsection{Client Permissions} \label{sec:client-permissions}
+%Requires some sort storage for clients, as well as permission for devices
+All users of the system are required to be registered prior to being able to use the \phone. Some devices may be accessible by guests, however the ability to grant access to and add \sdevs~is managed by users with a particular level of access to the system. Example names of the levels could be Administrator, Manager, User etc. 
+
+A common household may consist of two parents, both of whom may be administrators of the system. Additionally the household may consist of two children, a teenager and a child. The teenager may be setup to be a manager of the system such that he is able to add new \sdevs~to his room. While the child would be a user of the system with a limited access to the system. He is not allowed to use the stove, so he does not have access to this.
+
+
+%The system must be able to identify other \phones~running the system.
+%The system must be able to distribute the workload onto different \phones~running %the system.
+%The system must have a backup plan in-case the \phone~running the system is disconnected.
+%\Phones~associated with the system must be ready to take action on an backup plan, to maintain system up time and functionality.
+
+\subsection{System Features} \label{sec:system-features}
+When the user uses the system they will have access to certain features depending on their access level. The features described are based on the project groups own requirements to the system. 
+
+\begin{itemize}
+\item Add new \sdevs~to the system
+\item Remove \sdevs~from the system
+\item Control features for a selected \sdev:
+    \begin{itemize}
+    \item Turn on and off a \sdev
+    \item Get the status of the \sdev
+    \item Control the volume or other unique \sdevs~features
+    \end{itemize}
+\item Create a new user and grant them a permission level
+\item Change a user's permission level
+\item Delete an existing user from the system
+\end{itemize}
+
+%Also add a flowchart here. 

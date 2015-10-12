@@ -1,6 +1,20 @@
 \chapter{Analysis} \label{cha:analysis}
 
-% Introduction
+A \textit{Smart Home} is a concept of connecting various devices, such as lighting, televisions, and other electronics, providing a common \phone. In recent years having a Smart Home has become increasingly popular, as technology that enables the concept becomes increasingly available for consumers. Numerous companies are trying to establish a foothold in the market, each with their own solution of a Smart Home, for a good reason. Being able to establish a recognisable brand in this market could ensure a bright future, according to statistics. By the end of 2012, 3.5 million Smart Home systems were installed in North America. Since then the number of installations has increased to 13 million in 2015, and by the end of 2017 it has been estimated that 31 million North American homes will have a Smart Home system installed~\citep{statista-na-estimation}.
+
+To ensure less confusion, the following list explains the common key-words that is used within the scope of home automation.
+\begin{description}
+\item[Smart Home] is used for the concept in its entirety, which includes all of the \sdevs, the \hub, and the \phone~within the same home.
+\item[\Hub] commonly used in a Smart Home. All the \sdevs~are connected to it, which allows the users to control their \sdevs~through one application.
+\item[\SDevs] are accessible devices and gadgets that can be connected to the Internet, either through a \hub~or directly through the router.
+\item[\Phone] is used to administrate the \sdevs. Which can be displayed on any device such as, phone, tablet, or computer application.
+\end{description}
+
+
+% Problem Description
+\input{fragments/analysis/problem-description.tex} 
+
+% Initiating Problem
 \input{fragments/analysis/initiating-problem.tex}
 
 % Existing Solutions
@@ -13,5 +27,14 @@
 \input{fragments/analysis/problem-statement.tex}
 
 % Problem Specification
-\input{fragments/analysis/problem-specification.tex}
+\input{fragments/analysis/problem-delimitation.tex}
 
+
+
+\fxnote{fix placement af det her mandag}
+A Smart Home Environment is composed of the following components~\citep{overview-smart-home-environment}: 
+\begin{itemize}
+\item Home Automation System - \Sdevs~in the system
+\item Control System - The system that combines and allows manipulation on the \sdevs
+\item Home Automation Network - Physical connection and communication protocols used
+\end{itemize}
